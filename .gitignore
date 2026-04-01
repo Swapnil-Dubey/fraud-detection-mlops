@@ -1,0 +1,9 @@
+.DS_Store
+venv/
+__pycache__/
+*.pyc
+.env
+data/raw/
+mlflow/
+*.pkl
+mlruns/
