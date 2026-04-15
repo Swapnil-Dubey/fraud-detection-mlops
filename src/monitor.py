@@ -1,6 +1,4 @@
 import pandas as pd
-from evidently.report import Report
-from evidently.metric_preset import DataDriftPreset, ClassificationPreset
 
 
 def generate_drift_report(reference: pd.DataFrame, current: pd.DataFrame, output_path: str):
