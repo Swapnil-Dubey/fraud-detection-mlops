@@ -1,14 +1,14 @@
-FROM python:3.11-slim
+FROM python:3.8-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+ENV MLFLOW_TRACKING_URI=http://host.docker.internal:5000
 
-COPY api/ ./api/
-COPY src/ ./src/
-COPY mlruns/ ./mlruns/
+COPY requirements.txt /app
+RUN pip install -r requirements.txt
 
-EXPOSE 8000
+# Copy from src folder
+COPY src/serve.py /app
+COPY src/preprocess.py /app
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "serve:app", "--host", "0.0.0.0", "--port", "8000"]
