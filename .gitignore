@@ -2,8 +2,13 @@
 venv/
 __pycache__/
 *.pyc
+.ipynb_checkpoints/
+*.save
 .env
 data/raw/
+data/processed/
 mlflow/
-*.pkl
 mlruns/
+mlartifacts/
+*.pkl
+config/artifacts.json
